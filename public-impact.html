@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersaTech Global Solutions | Public Impact & CSR Technology Initiatives</title>
+  <meta name="description" content="Explore VersaTech's public impact initiatives, CSR technology programs, and innovation-driven projects supporting digital capacity and infrastructure development across Africa." />
+  <meta property="og:title" content="VersaTech Global Solutions | Public Impact & CSR Technology Initiatives" />
+  <meta property="og:description" content="VersaTech develops and supports public-facing technology initiatives designed to strengthen digital capacity and contribute to long-term infrastructure development across Africa." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --bg: #05070D;
+      --blue-deep: #1e3a8a;
+      --blue-mid: #1d4ed8;
+      --blue-bright: #2563eb;
+      --sky: #0ea5e9;
+      --steel: #94a3b8;
+      --white: #f1f5f9;
+      --dim: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── FIXED GRID OVERLAY ─── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5,7,13,0.78);
+      border-bottom: 1px solid rgba(30,58,138,0.18);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(14,165,233,0.45);
+      transition: all 0.3s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--sky);
+      background: rgba(14,165,233,0.05);
+      color: var(--sky);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5,7,13,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,58,138,0.18);
+      padding: 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      animation: orbFloat 18s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(30,58,138,0.13), transparent);
+      top: -100px; right: -80px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(14,165,233,0.07), transparent);
+      bottom: 0; left: 10%;
+      animation-delay: -9s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      45%       { transform: translate(-22px, 30px) scale(1.03); }
+      75%       { transform: translate(14px,-16px) scale(0.98); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 26s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    .hero-beam {
+      position: absolute;
+      width: 1px; height: 50%;
+      top: 0; left: 58%;
+      background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.09), transparent);
+      animation: beamPulse 10s ease-in-out infinite;
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.75; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      width: 100%;
+    }
+
+    .hero-page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      line-height: 1.09;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      max-width: 860px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    .hero-accent-line {
+      width: 0; height: 1px;
+      background: linear-gradient(to right, rgba(14,165,233,0.55), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: expandLine 1.4s ease forwards 0.9s;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 80px; opacity: 1; }
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-sub p {
+      font-size: 1rem;
+      line-height: 1.82;
+      color: var(--steel);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(30,58,138,0.22), transparent);
+    }
+
+    .content-section { padding: 8rem 0; }
+
+    .s-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.7;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .s-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .accent-svg { display: block; margin: 0.5rem 0 3rem; }
+
+    /* ─── INITIATIVES GRID ─── */
+    .initiatives-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(30,58,138,0.12);
+    }
+
+    /* Initiative card */
+    .init-card {
+      background: var(--bg);
+      padding: 2.5rem;
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .init-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(14,165,233,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .init-card:hover {
+      background: rgba(30,58,138,0.06);
+      border-color: rgba(37,99,235,0.2);
+      transform: translateY(-2px);
+    }
+
+    .init-card:hover::before { opacity: 1; }
+
+    .init-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .init-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    /* Status badges */
+    .badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .badge-ongoing {
+      color: #34d399;
+      border-color: rgba(52,211,153,0.35);
+      background: rgba(52,211,153,0.06);
+    }
+
+    .badge-annual {
+      color: var(--sky);
+      border-color: rgba(14,165,233,0.35);
+      background: rgba(14,165,233,0.06);
+    }
+
+    .badge-completed {
+      color: #a78bfa;
+      border-color: rgba(167,139,250,0.3);
+      background: rgba(167,139,250,0.05);
+    }
+
+    .badge-research {
+      color: #fbbf24;
+      border-color: rgba(251,191,36,0.3);
+      background: rgba(251,191,36,0.05);
+    }
+
+    .badge-planning {
+      color: #f472b6;
+      border-color: rgba(244,114,182,0.3);
+      background: rgba(244,114,182,0.05);
+    }
+
+    .badge-feasibility {
+      color: #fb923c;
+      border-color: rgba(251,146,60,0.3);
+      background: rgba(251,146,60,0.05);
+    }
+
+    .init-desc {
+      font-size: 0.86rem;
+      line-height: 1.72;
+      color: var(--steel);
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+
+    .init-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(148,163,184,0.2);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .init-cta:hover {
+      color: var(--sky);
+      border-color: rgba(14,165,233,0.5);
+    }
+
+    .init-cta svg {
+      transition: transform 0.2s ease;
+    }
+
+    .init-cta:hover svg { transform: translateX(3px); }
+
+    /* ─── IMPACT STATEMENT ─── */
+    .impact-band {
+      padding: 7rem 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(30,58,138,0.15);
+      border-bottom: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .impact-band-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(30,58,138,0.07), rgba(5,7,13,0) 55%, rgba(14,165,233,0.03));
+      animation: bandShift 18s ease-in-out infinite;
+    }
+
+    @keyframes bandShift {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 1; }
+    }
+
+    .impact-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .impact-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.12;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .impact-body p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--steel);
+    }
+
+    /* ─── CTA SECTION ─── */
+    #cta-section {
+      padding: 10rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(30,58,138,0.06), rgba(5,7,13,0), rgba(30,58,138,0.05));
+      animation: bandShift 20s ease-in-out infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1.12;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-glow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border: 1px solid rgba(30,58,138,0.45);
+      background: rgba(30,58,138,0.08);
+      position: relative;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(37,99,235,0.35);
+      opacity: 0;
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+
+    .btn-glow:nth-child(2)::before { animation-delay: -1.3s; }
+    .btn-glow:nth-child(3)::before { animation-delay: -2.6s; }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0; }
+      50%       { opacity: 0.55; }
+    }
+
+    .btn-glow:hover {
+      background: rgba(30,58,138,0.18);
+      border-color: rgba(37,99,235,0.55);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--steel); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
+    .reveal-delay-7 { transition-delay: 0.56s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .initiatives-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-inner     { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger            { display: flex; }
+      .initiatives-grid     { grid-template-columns: 1fr; }
+      .section-inner        { padding: 0 1.25rem; }
+      .content-section      { padding: 5rem 0; }
+      .impact-band          { padding: 5rem 0; }
+      .impact-inner         { padding: 0 1.25rem; }
+      #cta-section          { padding: 6rem 0; }
+      .cta-buttons          { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed grid overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="logo" aria-label="VersaTech Global Solutions — Home">
+        <img src="logo.png" alt="VersaTech Global Solutions" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="public-impact.html">Public Sector</a></li>
+        <li><a href="investors.html">Investors</a></li>
+      </ul>
+
+      <a href="inquiry.html" class="nav-cta">Strategic Inquiry</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html"         class="mobile-link">Home</a></li>
+      <li><a href="about.html"         class="mobile-link">About</a></li>
+      <li><a href="ecosystem.html"     class="mobile-link">Ecosystem</a></li>
+      <li><a href="public-impact.html" class="mobile-link">Public Sector</a></li>
+      <li><a href="investors.html"     class="mobile-link">Investors</a></li>
+      <li><a href="inquiry.html"       class="mobile-link">Strategic Inquiry</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-beam"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-page-label">VersaTech &mdash; Public Impact</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Public Impact &amp; CSR<br/>Technology Initiatives
+      </h1>
+
+      <div class="hero-accent-line" aria-hidden="true"></div>
+
+      <div class="hero-sub">
+        <p>VersaTech develops and supports public-facing technology initiatives designed to strengthen digital capacity, promote inclusive innovation, and contribute to long-term infrastructure development across Africa.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       INITIATIVES GRID
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="initiatives-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Active &amp; Past Initiatives</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.45"/>
+        </svg>
+        <h2 class="s-headline" id="initiatives-headline">
+          Programs designed for structural public impact.
+        </h2>
+      </div>
+
+      <div class="initiatives-grid" role="list" aria-label="VersaTech public initiatives">
+
+        <!-- Card 1 -->
+        <article class="init-card reveal" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">Community Digital Skills Acceleration Program</h3>
+            <span class="badge badge-ongoing">Ongoing</span>
+          </div>
+          <p class="init-desc">Structured digital literacy and technical skills development initiative targeting youth and emerging developers across underserved urban and peri-urban communities.</p>
+          <a href="#" class="init-cta" aria-label="View Community Digital Skills Acceleration Program">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="init-card reveal reveal-delay-1" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">Open Innovation Hackathon Series</h3>
+            <span class="badge badge-annual">Annual Initiative</span>
+          </div>
+          <p class="init-desc">Regional hackathons designed to surface high-impact solutions aligned with infrastructure and AI-driven innovation, open to developers and builders across Africa.</p>
+          <a href="#" class="init-cta" aria-label="View Open Innovation Hackathon Series">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="init-card reveal reveal-delay-2" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">SME Digital Transformation Support Drive</h3>
+            <span class="badge badge-completed">Completed Phase I</span>
+          </div>
+          <p class="init-desc">Technical advisory support for small and medium enterprises adopting scalable digital systems, improving operational capacity and digital market access.</p>
+          <a href="#" class="init-cta" aria-label="View SME Digital Transformation Support Drive">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="init-card reveal reveal-delay-1" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">Climate Data Awareness Initiative</h3>
+            <span class="badge badge-research">Research Phase</span>
+          </div>
+          <p class="init-desc">Public education and prototype development focused on climate resilience through technology-enabled monitoring tools adapted for African environmental contexts.</p>
+          <a href="#" class="init-cta" aria-label="View Climate Data Awareness Initiative">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="init-card reveal reveal-delay-2" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">AI for Social Good Research Track</h3>
+            <span class="badge badge-planning">Strategic Planning</span>
+          </div>
+          <p class="init-desc">Exploratory AI deployment concepts focused on healthcare access, education systems, and public service optimization within African institutional contexts.</p>
+          <a href="#" class="init-cta" aria-label="View AI for Social Good Research Track">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="init-card reveal reveal-delay-3" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">University Technology Collaboration Program</h3>
+            <span class="badge badge-ongoing">Ongoing</span>
+          </div>
+          <p class="init-desc">Academic-industry collaboration framework supporting student innovation, research exposure, and technical mentorship through structured university partnerships.</p>
+          <a href="#" class="init-cta" aria-label="View University Technology Collaboration Program">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="init-card reveal reveal-delay-2" role="listitem">
+          <div class="init-top">
+            <h3 class="init-title">Rural Connectivity &amp; Digital Inclusion Pilot</h3>
+            <span class="badge badge-feasibility">Feasibility Study</span>
+          </div>
+          <p class="init-desc">Infrastructure-oriented pilot concept focused on expanding digital participation in underserved regions through low-cost, high-impact connectivity models.</p>
+          <a href="#" class="init-cta" aria-label="View Rural Connectivity and Digital Inclusion Pilot">
+            View Initiative
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       IMPACT STATEMENT
+  ═══════════════════════════════════════ -->
+  <section class="impact-band" aria-labelledby="impact-headline">
+    <div class="impact-band-bg" aria-hidden="true"></div>
+    <div class="impact-inner">
+      <div class="reveal">
+        <h2 class="impact-headline" id="impact-headline">
+          Technology With<br/>Structural Intent.
+        </h2>
+      </div>
+      <div class="impact-body reveal reveal-delay-2">
+        <p>VersaTech's public initiatives are aligned with long-term infrastructure thinking. Each program is designed to strengthen digital capacity, cultivate technical capital, and contribute to sovereign innovation development across the continent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CALL TO ACTION
+  ═══════════════════════════════════════ -->
+  <section id="cta-section" aria-labelledby="cta-headline">
+    <div class="cta-bg" aria-hidden="true"></div>
+    <div class="section-inner cta-content">
+      <div class="reveal">
+        <h2 class="cta-headline" id="cta-headline">
+          Collaborate on Public Innovation.
+        </h2>
+        <div class="cta-buttons">
+          <a href="inquiry.html?type=public-initiative" class="btn-glow">Propose a Public Initiative</a>
+          <a href="inquiry.html?type=csr"               class="btn-glow">Partner on CSR Technology</a>
+          <a href="ecosystem.html"                       class="btn-glow">Explore Ecosystem Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2025 VersaTech Global Solutions. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="inquiry.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── HAMBURGER TOGGLE ─── */
+    const menuBtn     = document.getElementById('menuBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ─── HERO PARALLAX ─── */
+    const heroOrbs = document.querySelectorAll('.orb');
+    const heroGrid = document.querySelector('.hero-grid');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroOrbs.forEach((orb, i) => {
+        orb.style.transform = `translateY(${scrollY * (0.055 + i * 0.03)}px)`;
+      });
+      if (heroGrid) {
+        heroGrid.style.transform = `translateY(${scrollY * 0.1}px)`;
+      }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL FOR HASH LINKS ─── */
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

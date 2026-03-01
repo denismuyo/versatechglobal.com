@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersaTech Global Solutions | Institutional & Public Sector Engagement</title>
+  <meta name="description" content="Engage VersaTech for infrastructure-scale digital transformation, AI governance advisory, and institutional modernization initiatives across Africa." />
+  <meta property="og:title" content="VersaTech Global Solutions | Institutional & Public Sector Engagement" />
+  <meta property="og:description" content="A strategic infrastructure engagement channel for governments, public institutions, and development agencies across Africa." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --bg: #05070D;
+      --blue-deep: #1e3a8a;
+      --blue-mid: #1d4ed8;
+      --blue-bright: #2563eb;
+      --sky: #0ea5e9;
+      --steel: #94a3b8;
+      --white: #f1f5f9;
+      --dim: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── FIXED GRID OVERLAY ─── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5,7,13,0.78);
+      border-bottom: 1px solid rgba(30,58,138,0.18);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(14,165,233,0.45);
+      transition: all 0.3s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--sky);
+      background: rgba(14,165,233,0.05);
+      color: var(--sky);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5,7,13,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,58,138,0.18);
+      padding: 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Calmer, more restrained orbs for institutional tone */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      animation: orbFloat 18s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(30,58,138,0.12), transparent);
+      top: -150px; right: -120px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(37,99,235,0.07), transparent);
+      bottom: -60px; left: 5%;
+      animation-delay: -9s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      45%       { transform: translate(-20px, 30px) scale(1.03); }
+      75%       { transform: translate(15px,-18px) scale(0.98); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.045) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 28s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    /* Subtle vertical accent — less intense than other pages */
+    .hero-beam {
+      position: absolute;
+      width: 1px; height: 50%;
+      top: 0; right: 28%;
+      background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.08), transparent);
+      animation: beamPulse 10s ease-in-out infinite;
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.75; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      width: 100%;
+    }
+
+    .hero-page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      line-height: 1.09;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      max-width: 820px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    /* Thinner, more restrained underline for institutional tone */
+    .hero-accent-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, rgba(14,165,233,0.6), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: expandLine 1.4s ease forwards 0.9s;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 80px; opacity: 1; }
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-sub p {
+      font-size: 1rem;
+      line-height: 1.82;
+      color: var(--steel);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub p:last-child { margin-bottom: 0; }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(30,58,138,0.22), transparent);
+    }
+
+    .content-section { padding: 8rem 0; }
+
+    .s-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.7;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .s-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .s-intro {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: var(--steel);
+      max-width: 560px;
+      margin-bottom: 4rem;
+    }
+
+    .accent-svg { display: block; margin: 0.5rem 0 2.5rem; }
+
+    /* ─── ENGAGEMENT AREAS GRID ─── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(30,58,138,0.12);
+    }
+
+    /* Last two items centered when grid has 5 items in 3-col layout */
+    @media (min-width: 769px) {
+      .area-block:nth-child(4) { grid-column: 1; }
+      .areas-grid {
+        /* Let items flow naturally — 3+2 layout */
+      }
+    }
+
+    .area-block {
+      background: var(--bg);
+      padding: 2.5rem 2rem;
+      border: 1px solid transparent;
+      /* More restrained hover for institutional tone */
+      transition: background 0.35s ease, border-color 0.35s ease;
+      cursor: default;
+    }
+
+    .area-block:hover {
+      background: rgba(30,58,138,0.05);
+      border-color: rgba(30,58,138,0.3);
+    }
+
+    .area-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.55;
+      margin-bottom: 1.2rem;
+    }
+
+    .area-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .area-desc {
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: var(--steel);
+    }
+
+    /* ─── FORM ─── */
+    #application { padding: 8rem 0; }
+
+    .form-wrapper { max-width: 820px; }
+
+    .form-block { margin-bottom: 5rem; }
+
+    .form-section-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(30,58,138,0.18);
+    }
+
+    .form-section-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .field-group { margin-bottom: 1.8rem; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .field-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.6rem;
+    }
+
+    .req { color: var(--sky); margin-left: 2px; }
+
+    /* Slightly more restrained input styling */
+    .field-input,
+    .field-select,
+    .field-textarea {
+      width: 100%;
+      background: rgba(30,58,138,0.05);
+      border: 1px solid rgba(30,58,138,0.28);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.9rem 1.1rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder { color: var(--dim); }
+
+    .field-input:focus,
+    .field-select:focus,
+    .field-textarea:focus {
+      border-color: rgba(14,165,233,0.45);
+      background: rgba(30,58,138,0.09);
+      box-shadow: 0 0 0 1px rgba(14,165,233,0.1);
+    }
+
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .field-select option {
+      background: #0d1220;
+      color: var(--white);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.7;
+    }
+
+    /* Declaration — more formal, less glow */
+    .declaration-block {
+      padding: 2rem;
+      border: 1px solid rgba(30,58,138,0.22);
+      background: rgba(30,58,138,0.03);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .declaration-block:hover { border-color: rgba(30,58,138,0.4); }
+
+    .declaration-block input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(30,58,138,0.45);
+      background: transparent;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      border-radius: 0;
+    }
+
+    .declaration-block input[type="checkbox"]:checked {
+      background: rgba(14,165,233,0.12);
+      border-color: var(--sky);
+    }
+
+    .declaration-block input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 5px; height: 9px;
+      border: 1px solid var(--sky);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .declaration-block input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(14,165,233,0.15);
+    }
+
+    .declaration-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--steel);
+    }
+
+    .declaration-text strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    /* Submit button — calmer for institutional tone */
+    .btn-submit {
+      width: 100%;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(30,58,138,0.1);
+      border: 1px solid rgba(30,58,138,0.45);
+      padding: 1.3rem 2rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+      margin-top: 1rem;
+      border-radius: 0;
+    }
+
+    /* Calmer glow — not as intense as founder page */
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(37,99,235,0.4);
+      opacity: 0;
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0; }
+      50%       { opacity: 0.5; }
+    }
+
+    .btn-submit:hover {
+      background: rgba(30,58,138,0.18);
+      border-color: rgba(37,99,235,0.6);
+    }
+
+    .btn-submit:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(30,58,138,0.4);
+    }
+
+    /* Review note */
+    .form-footer-note {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(30,58,138,0.12);
+    }
+
+    .form-footer-note p {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+
+    /* Confidentiality notice */
+    .confidentiality-note {
+      margin-top: 1rem;
+      padding: 1.2rem 1.5rem;
+      border-left: 2px solid rgba(14,165,233,0.2);
+    }
+
+    .confidentiality-note p {
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--dim);
+      font-style: italic;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--steel); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger            { display: flex; }
+      .areas-grid           { grid-template-columns: 1fr; }
+      .field-row            { grid-template-columns: 1fr; gap: 1.2rem; }
+      .section-inner        { padding: 0 1.25rem; }
+      .content-section,
+      #application          { padding: 5rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed grid overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="logo" aria-label="VersaTech Global Solutions — Home">
+        <img src="logo.png" alt="VersaTech Global Solutions" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="public-impact.html" class="active">Public Sector</a></li>
+        <li><a href="investors.html">Investors</a></li>
+      </ul>
+
+      <a href="inquiry.html" class="nav-cta">Strategic Inquiry</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html"         class="mobile-link">Home</a></li>
+      <li><a href="about.html"         class="mobile-link">About</a></li>
+      <li><a href="ecosystem.html"     class="mobile-link">Ecosystem</a></li>
+      <li><a href="public-impact.html" class="mobile-link">Public Sector</a></li>
+      <li><a href="investors.html"     class="mobile-link">Investors</a></li>
+      <li><a href="inquiry.html"       class="mobile-link">Strategic Inquiry</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-beam"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-page-label">VersaTech &mdash; Public Sector &amp; Institutional Engagement</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Institutional &amp; Public Sector<br/>Engagement
+      </h1>
+
+      <div class="hero-accent-line" aria-hidden="true"></div>
+
+      <div class="hero-sub">
+        <p>VersaTech collaborates with governments, public institutions, development agencies, and strategic capital partners to deploy infrastructure-scale digital systems across Africa.</p>
+        <p><strong>This is a strategic infrastructure engagement channel.</strong></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ENGAGEMENT AREAS
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="areas-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Engagement Areas</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.4"/>
+        </svg>
+        <h2 class="s-headline" id="areas-headline">
+          Five domains of institutional<br/>infrastructure engagement.
+        </h2>
+        <p class="s-intro">
+          We engage public sector partners across the full spectrum of digital infrastructure modernization — from national architecture to AI governance.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+
+        <div class="area-block reveal">
+          <p class="area-num">01 &mdash; Digitization</p>
+          <p class="area-title">National Digitization Architecture</p>
+          <p class="area-desc">End-to-end design and deployment of national digital infrastructure frameworks — encompassing broadband strategy, cloud architecture, and whole-of-government connectivity models.</p>
+        </div>
+
+        <div class="area-block reveal reveal-delay-1">
+          <p class="area-num">02 &mdash; Urban Systems</p>
+          <p class="area-title">Smart Infrastructure &amp; Urban Systems</p>
+          <p class="area-desc">Integrated smart city deployments including traffic, utilities, public safety, and civic digital services designed to scale with urban growth corridors across the continent.</p>
+        </div>
+
+        <div class="area-block reveal reveal-delay-2">
+          <p class="area-num">03 &mdash; Governance</p>
+          <p class="area-title">AI Governance &amp; Policy Advisory</p>
+          <p class="area-desc">Sovereign AI policy frameworks enabling governments to regulate, direct, and benefit from AI deployment within their jurisdictions on their own terms and timelines.</p>
+        </div>
+
+        <div class="area-block reveal reveal-delay-1">
+          <p class="area-num">04 &mdash; Innovation</p>
+          <p class="area-title">Innovation District Development</p>
+          <p class="area-desc">Strategic planning and infrastructure design for government-backed technology districts, special economic zones, and innovation clusters aligned with continental growth priorities.</p>
+        </div>
+
+        <div class="area-block reveal reveal-delay-2">
+          <p class="area-num">05 &mdash; Partnerships</p>
+          <p class="area-title">Public-Private Infrastructure Models</p>
+          <p class="area-desc">Structured frameworks for blended public-private digital infrastructure deployment, enabling governments to leverage private capital and technical expertise at institutional scale.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ENGAGEMENT INQUIRY FORM
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section id="application" aria-labelledby="form-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Engagement Inquiry</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.4"/>
+        </svg>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3.2vw,2.8rem);color:var(--white);line-height:1.2;margin-bottom:1rem;" id="form-headline">
+          Initiate a formal engagement inquiry.
+        </h2>
+        <p style="font-size:0.93rem;line-height:1.82;color:var(--steel);max-width:560px;">
+          All inquiries are treated with institutional confidentiality. Please provide complete and accurate information to enable a structured review.
+        </p>
+      </div>
+
+      <div class="form-wrapper reveal">
+
+        <form
+          action="https://formsubmit.co/denisnzioka63@mail.com"
+          method="POST"
+          novalidate
+          aria-label="Institutional Engagement Inquiry Form"
+        >
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject"  value="New Institutional Engagement Inquiry - VersaTech" />
+          <input type="hidden" name="_captcha"  value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <!-- ══════════════════════════
+               SECTION 1 — INSTITUTIONAL DETAILS
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 01</p>
+              <p class="form-section-title">Institutional Details</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="institution-name">
+                  Institution Name <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="institution-name"
+                  name="institution_name"
+                  placeholder="Ministry, Agency, Authority, or Organization"
+                  required
+                  autocomplete="organization"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="department">
+                  Department / Division
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="department"
+                  name="department_division"
+                  placeholder="e.g. Department of ICT"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="country">
+                  Country <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="country"
+                  name="country"
+                  placeholder="Country of operation"
+                  required
+                  autocomplete="country-name"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="contact-person">
+                  Contact Person <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="contact-person"
+                  name="contact_person"
+                  placeholder="Full name of primary contact"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="title-role">
+                  Title / Role <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="title-role"
+                  name="title_role"
+                  placeholder="e.g. Director General, Minister, CTO"
+                  required
+                  autocomplete="organization-title"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="official-email">
+                  Official Email <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="email"
+                  id="official-email"
+                  name="official_email"
+                  placeholder="name@institution.gov"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="phone">Phone Number</label>
+                <input
+                  class="field-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+254 700 000 000"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 2 — ENGAGEMENT TYPE
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 02</p>
+              <p class="form-section-title">Engagement Type</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="engagement-focus">
+                Select Engagement Focus <span class="req" aria-label="required">*</span>
+              </label>
+              <select class="field-select" id="engagement-focus" name="engagement_focus" required>
+                <option value="" disabled selected>Select engagement focus area</option>
+                <option value="National Digitization Strategy">National Digitization Strategy</option>
+                <option value="Smart Infrastructure Deployment">Smart Infrastructure Deployment</option>
+                <option value="AI Governance & Policy Framework">AI Governance &amp; Policy Framework</option>
+                <option value="Innovation District Planning">Innovation District Planning</option>
+                <option value="Public-Private Infrastructure Model">Public-Private Infrastructure Model</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 3 — STRATEGIC CONTEXT
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 03</p>
+              <p class="form-section-title">Strategic Context</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="objective">
+                Briefly describe the institutional objective. <span class="req" aria-label="required">*</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="objective"
+                name="institutional_objective"
+                placeholder="Describe the strategic digital infrastructure challenge or opportunity your institution is addressing..."
+                required
+                style="min-height: 150px;"
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="timeline">
+                Desired timeline for engagement.
+              </label>
+              <textarea
+                class="field-textarea"
+                id="timeline"
+                name="desired_timeline"
+                placeholder="Indicate any legislative, budget, or operational timelines relevant to this engagement..."
+                style="min-height: 100px;"
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="scope">
+                  Scope of deployment.
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="scope"
+                  name="deployment_scope"
+                  placeholder="Local, regional, or national"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="budget">
+                  Budget range (optional).
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="budget"
+                  name="budget_range"
+                  placeholder="e.g. $500K – $5M USD"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               FINAL DECLARATION
+          ══════════════════════════ -->
+          <div class="form-block" style="margin-bottom: 2rem;">
+            <div class="form-section-header">
+              <p class="form-section-num">Declaration</p>
+              <p class="form-section-title">Formal Acknowledgement</p>
+            </div>
+
+            <label class="declaration-block" for="declaration">
+              <input
+                type="checkbox"
+                id="declaration"
+                name="declaration"
+                value="Confirmed"
+                required
+              />
+              <span class="declaration-text">
+                <strong>This inquiry represents a formal institutional engagement aligned with infrastructure-scale digital modernization.</strong>
+                I confirm that the information provided is accurate and that this submission is made on behalf of a recognized institution or government body.
+              </span>
+            </label>
+
+            <button type="submit" class="btn-submit" aria-label="Submit institutional engagement inquiry">
+              Initiate Strategic Engagement
+            </button>
+
+            <div class="form-footer-note">
+              <p>All institutional inquiries are reviewed confidentially and evaluated based on strategic alignment, scope, and infrastructure readiness.</p>
+              <p>Selected engagements proceed to structured consultation.</p>
+            </div>
+
+            <div class="confidentiality-note">
+              <p>VersaTech Global Solutions treats all institutional inquiries with strict confidentiality. Submitted information is used exclusively for evaluation and engagement purposes and is not shared with third parties.</p>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2025 VersaTech Global Solutions. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="inquiry.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── HAMBURGER TOGGLE ─── */
+    const menuBtn     = document.getElementById('menuBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ─── HERO PARALLAX — gentle for institutional tone ─── */
+    const heroOrbs = document.querySelectorAll('.orb');
+    const heroGrid = document.querySelector('.hero-grid');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroOrbs.forEach((orb, i) => {
+        orb.style.transform = `translateY(${scrollY * (0.05 + i * 0.03)}px)`;
+      });
+      if (heroGrid) {
+        heroGrid.style.transform = `translateY(${scrollY * 0.1}px)`;
+      }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL FOR HASH LINKS ─── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ─── DECLARATION VALIDATION ─── */
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+      const declaration = document.getElementById('declaration');
+      if (!declaration.checked) {
+        e.preventDefault();
+        declaration.focus();
+        const block = declaration.closest('.declaration-block');
+        block.style.borderColor = 'rgba(239,68,68,0.4)';
+        setTimeout(() => { block.style.borderColor = ''; }, 2200);
+      }
+    });
+  </script>
+
+</body>
+</html>

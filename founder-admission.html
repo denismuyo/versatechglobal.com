@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersaTech Global Solutions | Founder Admission Framework</title>
+  <meta name="description" content="Apply to the VersaTech Ecosystem through a structured founder evaluation process focused on scalable infrastructure-aligned innovation across Africa." />
+  <meta property="og:title" content="VersaTech Global Solutions | Founder Admission Framework" />
+  <meta property="og:description" content="Admission into the VersaTech Ecosystem is conducted through a structured multi-stage evaluation." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --bg: #05070D;
+      --blue-deep: #1e3a8a;
+      --blue-mid: #1d4ed8;
+      --blue-bright: #2563eb;
+      --sky: #0ea5e9;
+      --steel: #94a3b8;
+      --white: #f1f5f9;
+      --dim: #334155;
+      --border: rgba(30,58,138,0.25);
+      --border-hover: rgba(37,99,235,0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── GRID OVERLAY ─── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5,7,13,0.75);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(14,165,233,0.5);
+      transition: all 0.3s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--sky);
+      background: rgba(14,165,233,0.06);
+      color: var(--sky);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5,7,13,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+      padding: 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      animation: orbFloat 14s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15), transparent);
+      top: -120px; right: -60px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(14,165,233,0.09), transparent);
+      bottom: 0; left: 8%;
+      animation-delay: -6s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      40%       { transform: translate(-25px, 35px) scale(1.04); }
+      70%       { transform: translate(15px,-20px) scale(0.97); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.055) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 22s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    .hero-beam {
+      position: absolute;
+      width: 1px; height: 60%;
+      top: 0; left: 58%;
+      background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.12), transparent);
+      animation: beamPulse 7s ease-in-out infinite;
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 0.85; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      width: 100%;
+    }
+
+    .hero-page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1.07;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      max-width: 820px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    .hero-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--sky), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: expandLine 1.2s ease forwards 0.9s;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 110px; opacity: 1; }
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-sub p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--steel);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub p:last-child { margin-bottom: 0; }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(30,58,138,0.3), transparent);
+    }
+
+    .s-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.75;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .accent-svg { display: block; margin: 0.5rem 0 2.5rem; }
+
+    /* ─── EVALUATION STAGES ─── */
+    #stages { padding: 8rem 0; }
+
+    .stages-intro {
+      margin-bottom: 4rem;
+    }
+
+    .stages-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(30,58,138,0.15);
+    }
+
+    .stage-block {
+      background: var(--bg);
+      padding: 2.5rem 2rem;
+      border: 1px solid transparent;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .stage-block:hover {
+      background: rgba(30,58,138,0.06);
+      border-color: rgba(37,99,235,0.22);
+      transform: translateY(-3px);
+    }
+
+    .stage-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .stage-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .stage-desc {
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: var(--steel);
+    }
+
+    /* ─── FORM SECTION ─── */
+    #application { padding: 8rem 0; }
+
+    .form-wrapper {
+      max-width: 860px;
+    }
+
+    /* Form section header */
+    .form-section-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+    }
+
+    .form-section-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* form block spacing */
+    .form-block {
+      margin-bottom: 5rem;
+    }
+
+    /* field group */
+    .field-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    /* label */
+    .field-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.6rem;
+    }
+
+    .field-label .req {
+      color: var(--sky);
+      margin-left: 2px;
+    }
+
+    /* inputs, selects, textareas */
+    .field-input,
+    .field-select,
+    .field-textarea {
+      width: 100%;
+      background: rgba(30,58,138,0.06);
+      border: 1px solid rgba(30,58,138,0.3);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.9rem 1.1rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder { color: var(--dim); }
+
+    .field-input:focus,
+    .field-select:focus,
+    .field-textarea:focus {
+      border-color: rgba(14,165,233,0.55);
+      background: rgba(30,58,138,0.1);
+      box-shadow: 0 0 0 1px rgba(14,165,233,0.15);
+    }
+
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .field-select option {
+      background: #0d1220;
+      color: var(--white);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.65;
+    }
+
+    /* checkbox group */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1px solid rgba(30,58,138,0.5);
+      background: rgba(30,58,138,0.06);
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked {
+      background: rgba(14,165,233,0.2);
+      border-color: var(--sky);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 4px; height: 8px;
+      border: 1px solid var(--sky);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .checkbox-item input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(14,165,233,0.2);
+    }
+
+    .checkbox-label {
+      font-size: 0.88rem;
+      color: var(--steel);
+      line-height: 1.55;
+      transition: color 0.2s;
+    }
+
+    .checkbox-item:hover .checkbox-label { color: var(--white); }
+
+    /* declaration checkbox */
+    .declaration-block {
+      padding: 2rem;
+      border: 1px solid rgba(30,58,138,0.25);
+      background: rgba(30,58,138,0.04);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: border-color 0.3s;
+    }
+
+    .declaration-block:hover {
+      border-color: rgba(37,99,235,0.35);
+    }
+
+    .declaration-block input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(30,58,138,0.5);
+      background: transparent;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .declaration-block input[type="checkbox"]:checked {
+      background: rgba(14,165,233,0.15);
+      border-color: var(--sky);
+    }
+
+    .declaration-block input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 5px; height: 9px;
+      border: 1px solid var(--sky);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .declaration-text {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--steel);
+    }
+
+    .declaration-text strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    /* submit button */
+    .btn-submit {
+      width: 100%;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.5);
+      padding: 1.3rem 2rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid var(--blue-bright);
+      opacity: 0;
+      animation: borderGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0; }
+      50%       { opacity: 0.7; }
+    }
+
+    .btn-submit:hover {
+      background: rgba(37,99,235,0.22);
+      border-color: var(--blue-bright);
+    }
+
+    .btn-submit:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.35);
+    }
+
+    /* form footer note */
+    .form-footer-note {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .form-footer-note p {
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--steel); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .stages-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger            { display: flex; }
+      .stages-grid          { grid-template-columns: 1fr; }
+      .field-row            { grid-template-columns: 1fr; gap: 1.2rem; }
+      .section-inner        { padding: 0 1.25rem; }
+      #stages, #application { padding: 5rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed grid overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="logo" aria-label="VersaTech Global Solutions — Home">
+        <img src="logo.png" alt="VersaTech Global Solutions" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="public-impact.html">Public Sector</a></li>
+        <li><a href="investors.html">Investors</a></li>
+      </ul>
+
+      <a href="inquiry.html" class="nav-cta">Strategic Inquiry</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html"         class="mobile-link">Home</a></li>
+      <li><a href="about.html"         class="mobile-link">About</a></li>
+      <li><a href="ecosystem.html"     class="mobile-link">Ecosystem</a></li>
+      <li><a href="public-impact.html" class="mobile-link">Public Sector</a></li>
+      <li><a href="investors.html"     class="mobile-link">Investors</a></li>
+      <li><a href="inquiry.html"       class="mobile-link">Strategic Inquiry</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-beam"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-page-label">VersaTech Ecosystem &mdash; Admission</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Founder Admission<br/>Framework
+      </h1>
+
+      <div class="hero-line" aria-hidden="true"></div>
+
+      <div class="hero-sub">
+        <p>Admission into the VersaTech Ecosystem is conducted through a structured multi-stage evaluation designed to assess scalability, governance readiness, and continental alignment.</p>
+        <p><strong>This is not a pitch competition.<br/>It is an infrastructure review.</strong></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       EVALUATION STAGES
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section id="stages" aria-labelledby="stages-headline">
+    <div class="section-inner">
+
+      <div class="stages-intro reveal">
+        <span class="s-label">Evaluation Process</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="stages-headline" id="stages-headline">
+          A four-stage structural review.
+        </h2>
+      </div>
+
+      <div class="stages-grid">
+
+        <div class="stage-block reveal">
+          <p class="stage-num">Stage 01</p>
+          <p class="stage-title">Structural Alignment Review</p>
+          <p class="stage-desc">Assessment of whether the venture addresses a structural African challenge at the infrastructure or platform layer.</p>
+        </div>
+
+        <div class="stage-block reveal reveal-delay-1">
+          <p class="stage-num">Stage 02</p>
+          <p class="stage-title">Architecture &amp; Scalability Assessment</p>
+          <p class="stage-desc">Technical and operational review of the platform's architecture, infrastructure dependencies, and 24-month scalability trajectory.</p>
+        </div>
+
+        <div class="stage-block reveal reveal-delay-2">
+          <p class="stage-num">Stage 03</p>
+          <p class="stage-title">Founder Capability Evaluation</p>
+          <p class="stage-desc">Assessment of founder background, domain authority, governance philosophy, and long-term operating conviction.</p>
+        </div>
+
+        <div class="stage-block reveal reveal-delay-3">
+          <p class="stage-num">Stage 04</p>
+          <p class="stage-title">Strategic Fit Determination</p>
+          <p class="stage-desc">Final alignment review against VersaTech's continental infrastructure thesis and venture development model.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       APPLICATION FORM
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section id="application" aria-labelledby="form-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Application</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--white);line-height:1.2;" id="form-headline">
+          Begin the evaluation process.
+        </h2>
+      </div>
+
+      <div class="form-wrapper reveal">
+
+        <form
+          action="https://formsubmit.co/denisnzioka63@mail.com"
+          method="POST"
+          novalidate
+          aria-label="Founder Admission Application Form"
+        >
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject"  value="New Founder Admission Application - VersaTech" />
+          <input type="hidden" name="_captcha"  value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <!-- ══════════════════════════
+               SECTION 1 — FOUNDER IDENTITY
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 01</p>
+              <p class="form-section-title">Founder Identity</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="full-name">
+                  Full Name <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="full-name"
+                  name="full_name"
+                  placeholder="Your full name"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="email">
+                  Email Address <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="phone">
+                  Phone Number <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+254 700 000 000"
+                  required
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="linkedin">LinkedIn URL</label>
+                <input
+                  class="field-input"
+                  type="url"
+                  id="linkedin"
+                  name="linkedin_url"
+                  placeholder="https://linkedin.com/in/yourprofile"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="country">Country of Operation</label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="country"
+                  name="country"
+                  placeholder="e.g. Kenya, Nigeria, Ghana"
+                  autocomplete="country-name"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="company">Company Name</label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="company"
+                  name="company_name"
+                  placeholder="Your company or venture name"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="website">Website</label>
+                <input
+                  class="field-input"
+                  type="url"
+                  id="website"
+                  name="website"
+                  placeholder="https://yourcompany.com"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="stage">Venture Stage</label>
+                <select class="field-select" id="stage" name="venture_stage">
+                  <option value="" disabled selected>Select current stage</option>
+                  <option value="Idea">Idea</option>
+                  <option value="MVP">MVP</option>
+                  <option value="Revenue">Revenue</option>
+                  <option value="Scaling">Scaling</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 2 — STRUCTURAL ALIGNMENT
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 02</p>
+              <p class="form-section-title">Structural Alignment</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="challenge">
+                What structural African challenge does your startup address?
+                <span class="req" aria-label="required">*</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="challenge"
+                name="structural_challenge"
+                placeholder="Describe the core structural problem you are solving..."
+                required
+                style="min-height: 140px;"
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="significance">
+                Why is this problem significant at a continental scale?
+                <span class="req" aria-label="required">*</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="significance"
+                name="continental_significance"
+                placeholder="Explain the continental dimension of this problem..."
+                required
+                style="min-height: 140px;"
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="sector">Sector</label>
+                <select class="field-select" id="sector" name="sector">
+                  <option value="" disabled selected>Select your sector</option>
+                  <option value="HRTech">HRTech</option>
+                  <option value="PropTech">PropTech</option>
+                  <option value="ClimateTech">ClimateTech</option>
+                  <option value="AI / Data">AI / Data</option>
+                  <option value="Infrastructure Tools">Infrastructure Tools</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="scalability">
+                Is your solution designed for cross-border scalability? Explain.
+              </label>
+              <textarea
+                class="field-textarea"
+                id="scalability"
+                name="cross_border_scalability"
+                placeholder="Describe your cross-border scalability design and strategy..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 3 — ARCHITECTURE & SCALABILITY
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 03</p>
+              <p class="form-section-title">Architecture &amp; Scalability</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="tech-arch">
+                Describe your current technical architecture.
+              </label>
+              <textarea
+                class="field-textarea"
+                id="tech-arch"
+                name="technical_architecture"
+                placeholder="Stack, infrastructure, deployment model, key technical decisions..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="infra-deps">
+                What infrastructure dependencies does your platform require?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="infra-deps"
+                name="infrastructure_dependencies"
+                placeholder="Cloud providers, data centers, connectivity requirements, third-party systems..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="data-gov">
+                How do you approach data governance and security?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="data-gov"
+                name="data_governance"
+                placeholder="Data sovereignty practices, security frameworks, compliance approach..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="scale-plan">
+                What is your scalability plan for the next 24 months?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="scale-plan"
+                name="scalability_plan_24m"
+                placeholder="Growth targets, infrastructure expansion, market entry strategy..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 4 — FOUNDER READINESS
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 04</p>
+              <p class="form-section-title">Founder Readiness</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="why-building">
+                Why are you building this company?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="why-building"
+                name="motivation"
+                placeholder="Your founding conviction, the moment it became clear this had to be built..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="right-to-solve">
+                What gives you the right to solve this problem?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="right-to-solve"
+                name="founder_authority"
+                placeholder="Domain expertise, lived experience, unfair advantages, prior work..."
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="governance">
+                  Are you open to structured governance frameworks?
+                </label>
+                <select class="field-select" id="governance" name="open_to_governance">
+                  <option value="" disabled selected>Select response</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <fieldset style="border:none;padding:0;">
+                <legend class="field-label" style="display:block;margin-bottom:0.8rem;">
+                  What are you seeking from VersaTech?
+                </legend>
+                <div class="checkbox-group" role="group" aria-label="VersaTech support areas">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="seeking[]" value="Infrastructure advisory" />
+                    <span class="checkbox-label">Infrastructure advisory</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="seeking[]" value="Incubation" />
+                    <span class="checkbox-label">Incubation</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="seeking[]" value="Strategic partnerships" />
+                    <span class="checkbox-label">Strategic partnerships</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="seeking[]" value="Capital pathway" />
+                    <span class="checkbox-label">Capital pathway</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="seeking[]" value="Other" />
+                    <span class="checkbox-label">Other</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               FINAL DECLARATION
+          ══════════════════════════ -->
+          <div class="form-block" style="margin-bottom:2rem;">
+            <div class="form-section-header">
+              <p class="form-section-num">Declaration</p>
+              <p class="form-section-title">Applicant Acknowledgement</p>
+            </div>
+
+            <label class="declaration-block" for="declaration">
+              <input
+                type="checkbox"
+                id="declaration"
+                name="declaration"
+                value="Confirmed"
+                required
+              />
+              <span class="declaration-text">
+                <strong>I understand that admission into the VersaTech Ecosystem is selective and evaluated structurally.</strong>
+                I confirm that the information provided in this application is accurate, and I agree to engage with the evaluation process in good faith.
+              </span>
+            </label>
+
+            <button type="submit" class="btn-submit" aria-label="Submit founder application">
+              Begin Structured Evaluation
+            </button>
+
+            <div class="form-footer-note" aria-live="polite">
+              <p>All applications are reviewed within 14–21 business days.</p>
+              <p>Shortlisted founders may be invited for further evaluation interviews.</p>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2025 VersaTech Global Solutions. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="inquiry.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── HAMBURGER TOGGLE ─── */
+    const menuBtn     = document.getElementById('menuBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ─── HERO PARALLAX ─── */
+    const heroOrbs = document.querySelectorAll('.orb');
+    const heroGrid = document.querySelector('.hero-grid');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroOrbs.forEach((orb, i) => {
+        orb.style.transform = `translateY(${scrollY * (0.07 + i * 0.04)}px)`;
+      });
+      if (heroGrid) {
+        heroGrid.style.transform = `translateY(${scrollY * 0.12}px)`;
+      }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL FOR HASH LINKS ─── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ─── FORM VALIDATION ─── */
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+      const declaration = document.getElementById('declaration');
+      if (!declaration.checked) {
+        e.preventDefault();
+        declaration.focus();
+        const block = declaration.closest('.declaration-block');
+        block.style.borderColor = 'rgba(239,68,68,0.5)';
+        setTimeout(() => {
+          block.style.borderColor = '';
+        }, 2000);
+      }
+    });
+  </script>
+
+</body>
+</html>

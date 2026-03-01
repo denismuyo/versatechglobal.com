@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersaTech Global Solutions | About | Digital Infrastructure & AI Sovereignty</title>
+  <meta name="description" content="VersaTech Global Solutions was founded to participate in the architectural layer of Africa's digital future. We build systems that outlive product cycles, political terms, and technological trends." />
+  <meta property="og:title" content="About VersaTech Global Solutions" />
+  <meta property="og:description" content="Engineering Africa's Digital Sovereignty. We are builders of infrastructure." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --bg: #05070D;
+      --blue-deep: #1e3a8a;
+      --blue-mid: #1d4ed8;
+      --blue-bright: #2563eb;
+      --sky: #0ea5e9;
+      --steel: #94a3b8;
+      --white: #f1f5f9;
+      --dim: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── FIXED GRID OVERLAY ─── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5,7,13,0.75);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(14,165,233,0.5);
+      transition: all 0.3s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--sky);
+      background: rgba(14,165,233,0.06);
+      color: var(--sky);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5,7,13,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+      padding: 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      animation: orbFloat 14s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(29,78,216,0.18), transparent);
+      top: -150px; right: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(14,165,233,0.1), transparent);
+      bottom: 10%; left: 5%;
+      animation-delay: -6s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40%       { transform: translate(-30px, 40px) scale(1.04); }
+      70%       { transform: translate(20px, -20px) scale(0.97); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.055) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 24s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    /* Diagonal accent line */
+    .hero-accent-line {
+      position: absolute;
+      top: 0; right: 20%;
+      width: 1px;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.12), transparent);
+      animation: beamPulse 7s ease-in-out infinite;
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.5; }
+      50%       { opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    .hero-page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.7;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      line-height: 1.06;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 0;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    .hero-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--sky), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: expandLine 1.2s ease forwards 0.9s;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 100px; opacity: 1; }
+    }
+
+    .hero-body {
+      max-width: 680px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--steel);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-body p:last-child { margin-bottom: 0; }
+
+    .hero-body strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(30,58,138,0.3), transparent);
+    }
+
+    .content-section {
+      padding: 8rem 0;
+    }
+
+    /* Section label */
+    .s-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.75;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    /* Section headline */
+    .s-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 3rem;
+      max-width: 780px;
+    }
+
+    /* Body text */
+    .s-body {
+      max-width: 680px;
+    }
+
+    .s-body p {
+      font-size: 0.97rem;
+      line-height: 1.9;
+      color: var(--steel);
+      margin-bottom: 1.5rem;
+    }
+
+    .s-body p:last-child { margin-bottom: 0; }
+
+    /* Manifesto lines — short punchy statements */
+    .manifesto-lines {
+      margin: 2.5rem 0;
+    }
+
+    .manifesto-lines p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.4;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .manifesto-lines p:first-child { border-top: 1px solid rgba(30,58,138,0.15); }
+
+    /* Two-column layout for some sections */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* Doctrine list */
+    .doctrine-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .doctrine-list li {
+      font-size: 0.92rem;
+      color: var(--steel);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(30,58,138,0.15);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      line-height: 1.6;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .doctrine-list li::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--sky);
+      transition: width 0.4s ease;
+    }
+
+    .doctrine-list li:hover { color: var(--white); }
+    .doctrine-list li:hover::after { width: 100%; }
+
+    .doctrine-list li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--sky);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+      opacity: 0.7;
+    }
+
+    /* Philosophy beliefs */
+    .beliefs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(30,58,138,0.12);
+      margin-top: 3rem;
+    }
+
+    .belief-block {
+      background: var(--bg);
+      padding: 2.5rem;
+      border: 1px solid transparent;
+      transition: all 0.4s ease;
+    }
+
+    .belief-block:hover {
+      background: rgba(30,58,138,0.05);
+      border-color: rgba(37,99,235,0.18);
+    }
+
+    .belief-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+
+    .belief-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.45;
+    }
+
+    /* Vision 2035 card */
+    .vision-card {
+      position: relative;
+      padding: 4rem;
+      background: rgba(30,58,138,0.05);
+      border: 1px solid rgba(30,58,138,0.2);
+      margin-top: 3rem;
+    }
+
+    .vision-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.25), transparent 60%, rgba(14,165,233,0.1));
+      z-index: -1;
+      animation: cardGlow 10s ease-in-out infinite;
+    }
+
+    @keyframes cardGlow {
+      0%, 100% { opacity: 0.5; }
+      50%       { opacity: 1; }
+    }
+
+    .vision-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      font-weight: 300;
+      color: rgba(37,99,235,0.12);
+      line-height: 1;
+      position: absolute;
+      top: 2rem; right: 3rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .vision-list {
+      list-style: none;
+    }
+
+    .vision-list li {
+      font-size: 0.92rem;
+      color: var(--steel);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(30,58,138,0.12);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      line-height: 1.65;
+      transition: color 0.25s;
+    }
+
+    .vision-list li:last-child { border-bottom: none; }
+    .vision-list li:hover { color: var(--white); }
+
+    .vision-list li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--sky);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+      opacity: 0.6;
+    }
+
+    .vision-closing {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .vision-closing p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.4;
+      max-width: 720px;
+    }
+
+    /* Accent SVG line */
+    .accent-svg {
+      display: block;
+      margin: 0.5rem 0 3rem;
+    }
+
+    /* Full-width highlight band */
+    .highlight-band {
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(30,58,138,0.15);
+      border-bottom: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .highlight-band-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(30,58,138,0.07), rgba(14,165,233,0.03), rgba(30,58,138,0.07));
+      animation: bandShift 18s ease-in-out infinite;
+    }
+
+    @keyframes bandShift {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 1; }
+    }
+
+    .highlight-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.3;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .highlight-quote em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--steel); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger            { display: flex; }
+      .two-col              { grid-template-columns: 1fr; gap: 3rem; }
+      .beliefs-grid         { grid-template-columns: 1fr; }
+      .section-inner        { padding: 0 1.25rem; }
+      .content-section      { padding: 5rem 0; }
+      .vision-card          { padding: 2.5rem; }
+      .vision-year          { font-size: 4rem; top: 1.5rem; right: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed grid overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="logo" aria-label="VersaTech Global Solutions — Home">
+        <img src="logo.png" alt="VersaTech Global Solutions" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="public-impact.html">Public Sector</a></li>
+        <li><a href="investors.html">Investors</a></li>
+      </ul>
+
+      <a href="inquiry.html" class="nav-cta">Strategic Inquiry</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html"         class="mobile-link">Home</a></li>
+      <li><a href="about.html"         class="mobile-link">About</a></li>
+      <li><a href="ecosystem.html"     class="mobile-link">Ecosystem</a></li>
+      <li><a href="public-impact.html" class="mobile-link">Public Sector</a></li>
+      <li><a href="investors.html"     class="mobile-link">Investors</a></li>
+      <li><a href="inquiry.html"       class="mobile-link">Strategic Inquiry</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-accent-line"></div>
+    </div>
+
+    <div class="hero-content">
+
+      <p class="hero-page-label">About VersaTech Global Solutions</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Engineering Africa's<br/>Digital Sovereignty.
+      </h1>
+
+      <div class="hero-line" aria-hidden="true"></div>
+
+      <div class="hero-body">
+        <p>VersaTech Global Solutions was not founded to build websites, deploy tools, or chase short-term contracts.</p>
+        <p>It was founded to participate in the <strong>architectural layer</strong> of Africa's digital future.</p>
+        <p>We exist to build systems that outlive product cycles, political terms, and technological trends.</p>
+        <p><strong>We are builders of infrastructure.</strong></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: THE STRUCTURAL REALITY
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="reality-headline">
+    <div class="section-inner">
+      <div class="two-col">
+
+        <div class="reveal">
+          <span class="s-label">The Structural Reality</span>
+          <!-- Accent SVG line -->
+          <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+            <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <h2 class="s-headline" id="reality-headline">
+            Infrastructure determines power.
+          </h2>
+          <div class="s-body">
+            <p>Africa's digital acceleration is undeniable. Yet beneath the surface, much of the continent's core digital backbone remains externally owned, fragmented, or strategically misaligned with long-term continental priorities.</p>
+            <p>The next decade will determine whether Africa participates in the AI-driven global economy as a consumer — or as an owner.</p>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="manifesto-lines" role="list" aria-label="Key structural realities">
+            <p>Platforms scale.</p>
+            <p>Applications multiply.</p>
+            <p>But infrastructure determines power.</p>
+            <p>Ownership requires infrastructure.</p>
+            <p>Infrastructure requires vision.</p>
+            <p>Vision requires builders.</p>
+            <p>VersaTech was structured for this moment.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HIGHLIGHT BAND
+  ═══════════════════════════════════════ -->
+  <div class="highlight-band" role="presentation">
+    <div class="highlight-band-bg" aria-hidden="true"></div>
+    <div class="section-inner" style="position:relative;z-index:2;">
+      <p class="highlight-quote reveal">
+        Africa must design, deploy, and govern its own digital systems<br/>at <em>institutional scale</em>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: OUR THESIS
+  ═══════════════════════════════════════ -->
+  <section class="content-section" aria-labelledby="thesis-headline">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <span class="s-label">Our Thesis</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="s-headline" id="thesis-headline">
+          Sovereign Digital Infrastructure as a Strategic Asset Class.
+        </h2>
+      </div>
+
+      <div class="two-col">
+
+        <div class="reveal">
+          <div class="manifesto-lines">
+            <p>Digital infrastructure is not a service category.<br/><span style="color:var(--sky);font-size:0.95em;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;font-style:normal;">It is a sovereign asset class.</span></p>
+            <p>Artificial intelligence is not merely a tool.<br/><span style="color:var(--sky);font-size:0.95em;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;">It is a structural economic force.</span></p>
+            <p>Data is not exhaust.<br/><span style="color:var(--sky);font-size:0.95em;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;">It is national leverage.</span></p>
+          </div>
+
+          <div class="s-body" style="margin-top:2rem;">
+            <p>VersaTech operates on a singular belief: Africa must design, deploy, and govern its own digital systems at institutional scale.</p>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--sky);opacity:0.7;margin-bottom:1.5rem;">We Architect Layered Systems</p>
+          <ul class="doctrine-list" aria-label="VersaTech system layers">
+            <li>Enterprise modernization frameworks</li>
+            <li>Secure national data architecture</li>
+            <li>Scalable AI deployment models</li>
+            <li>Venture-built continental platforms</li>
+            <li>Innovation ecosystems that cultivate technical capital</li>
+          </ul>
+          <p style="margin-top:2.5rem;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;color:var(--white);line-height:1.5;">
+            This is not participation.<br/>It is structural positioning.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: OPERATING DOCTRINE
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="doctrine-headline">
+    <div class="section-inner">
+
+      <div class="two-col">
+
+        <div class="reveal">
+          <span class="s-label">Operating Doctrine</span>
+          <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+            <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <h2 class="s-headline" id="doctrine-headline">
+            An Integrated Infrastructure Model.
+          </h2>
+          <ul class="doctrine-list" aria-label="Operating model components">
+            <li>Deploying institutional-grade digital systems for governments and enterprises</li>
+            <li>Incubating scalable platforms through our venture studio</li>
+            <li>Advancing African-owned AI and data infrastructure initiatives</li>
+            <li>Building innovation hubs that accelerate technical talent and research</li>
+          </ul>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="manifesto-lines" style="margin-top:5rem;">
+            <p>Revenue is not the objective.</p>
+            <p>Durable infrastructure is.</p>
+            <p>Short-term execution funds long-term capability.</p>
+            <p>We build in layers.</p>
+            <p>We build for decades.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: CONTINENTAL FROM INCEPTION
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="continental-headline">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <span class="s-label">Continental From Inception</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="s-headline" id="continental-headline">
+          Headquartered in East Africa.<br/>Designed for the Continent.
+        </h2>
+      </div>
+
+      <div class="two-col">
+
+        <div class="reveal">
+          <div class="s-body">
+            <p>VersaTech is headquartered in East Africa. But we were never designed to remain local.</p>
+            <p>Our strategy is continental — infrastructure deployment across emerging regional corridors, institutional partnerships across public and private sectors, AI and data initiatives designed for cross-border scalability.</p>
+          </div>
+
+          <p style="margin-top:3rem;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--white);line-height:1.45;max-width:480px;">
+            We are building a Pan-African technology infrastructure group. Not a regional service firm.
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--sky);opacity:0.7;margin-bottom:1.5rem;">Continental Strategy</p>
+          <ul class="doctrine-list" aria-label="Continental strategy pillars">
+            <li>Infrastructure deployment across emerging regional corridors</li>
+            <li>Institutional partnerships across public and private sectors</li>
+            <li>AI and data initiatives designed for cross-border scalability</li>
+            <li>Platform incubation aligned with structural African growth sectors</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: LEADERSHIP PHILOSOPHY
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="philosophy-headline">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <span class="s-label">Leadership Philosophy</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="s-headline" id="philosophy-headline">
+          Infrastructure must outlive its founders.
+        </h2>
+      </div>
+
+      <div class="beliefs-grid reveal">
+        <div class="belief-block">
+          <p class="belief-num">01</p>
+          <p class="belief-text">Infrastructure must outlive its founders.</p>
+        </div>
+        <div class="belief-block">
+          <p class="belief-num">02</p>
+          <p class="belief-text">Governance matters as much as engineering.</p>
+        </div>
+        <div class="belief-block">
+          <p class="belief-num">03</p>
+          <p class="belief-text">Capital should be deployed with discipline, not noise.</p>
+        </div>
+        <div class="belief-block">
+          <p class="belief-num">04</p>
+          <p class="belief-text">Sovereignty in the digital era will define economic leverage for generations.</p>
+        </div>
+      </div>
+
+      <div class="s-body reveal" style="margin-top:3.5rem;">
+        <p>VersaTech is guided by long-term thinking, institutional integrity, and technical rigor.</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--white);line-height:1.5;margin-top:1.5rem;">
+          We are not building for headlines.<br/>We are building for history.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION: VISION 2035
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="vision-headline">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <span class="s-label">Vision 2035</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="s-headline" id="vision-headline">
+          By 2035, VersaTech intends to stand as a foundational institution in African-owned digital infrastructure.
+        </h2>
+      </div>
+
+      <div class="vision-card reveal">
+        <div class="vision-year" aria-hidden="true">2035</div>
+
+        <ul class="vision-list" aria-label="2035 vision milestones">
+          <li>A recognized contributor to African-owned AI systems</li>
+          <li>A strategic infrastructure partner to governments and institutions across the continent</li>
+          <li>A venture engine behind scalable continental platforms</li>
+          <li>A catalyst for sovereign digital capacity across Africa</li>
+        </ul>
+
+        <div class="vision-closing">
+          <p>The next phase of Africa's digital evolution will not be built through convenience. It will be built through infrastructure.<br/><br/>We intend to help architect it.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2025 VersaTech Global Solutions. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="inquiry.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── HAMBURGER TOGGLE ─── */
+    const menuBtn     = document.getElementById('menuBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ─── HERO PARALLAX ─── */
+    const heroOrbs = document.querySelectorAll('.orb');
+    const heroGrid = document.querySelector('.hero-grid');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroOrbs.forEach((orb, i) => {
+        orb.style.transform = `translateY(${scrollY * (0.07 + i * 0.04)}px)`;
+      });
+      if (heroGrid) {
+        heroGrid.style.transform = `translateY(${scrollY * 0.12}px)`;
+      }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL FOR HASH LINKS ─── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

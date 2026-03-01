@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VersaTech Global Solutions | Innovation Hub Partnership Portal</title>
+  <meta name="description" content="Submit a structured partnership proposal to join the VersaTech Ecosystem and collaborate on infrastructure-scale innovation across Africa." />
+  <meta property="og:title" content="VersaTech Global Solutions | Innovation Hub Partnership Portal" />
+  <meta property="og:description" content="A strategic infrastructure partnership channel for technology hubs, accelerators, and research institutions across Africa." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ─── VARIABLES ─── */
+    :root {
+      --bg: #05070D;
+      --blue-deep: #1e3a8a;
+      --blue-mid: #1d4ed8;
+      --blue-bright: #2563eb;
+      --sky: #0ea5e9;
+      --steel: #94a3b8;
+      --white: #f1f5f9;
+      --dim: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── FIXED GRID OVERLAY ─── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(30,58,138,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,58,138,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5,7,13,0.75);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(14,165,233,0.5);
+      transition: all 0.3s;
+      background: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--sky);
+      background: rgba(14,165,233,0.06);
+      color: var(--sky);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(5,7,13,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+      padding: 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      animation: orbFloat 14s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(29,78,216,0.15), transparent);
+      top: -100px; left: -80px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(14,165,233,0.1), transparent);
+      bottom: 0; right: 12%;
+      animation-delay: -7s;
+    }
+
+    .orb-3 {
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(37,99,235,0.09), transparent);
+      top: 45%; right: 30%;
+      animation-delay: -3.5s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      38%       { transform: translate(30px,-28px) scale(1.04); }
+      70%       { transform: translate(-18px, 22px) scale(0.97); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.055) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 22s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    .hero-beam {
+      position: absolute;
+      width: 1px; height: 55%;
+      top: 0; right: 35%;
+      background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.12), transparent);
+      animation: beamPulse 8s ease-in-out infinite;
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.35; }
+      50%       { opacity: 0.9; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      width: 100%;
+    }
+
+    .hero-page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1.07;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      max-width: 860px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    .hero-accent-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--sky), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: expandLine 1.2s ease forwards 0.9s;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; opacity: 0; }
+      to   { width: 110px; opacity: 1; }
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-sub p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--steel);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub p:last-child { margin-bottom: 0; }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(30,58,138,0.3), transparent);
+    }
+
+    .content-section { padding: 8rem 0; }
+
+    .s-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.75;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .s-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .s-intro {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--steel);
+      max-width: 580px;
+      margin-bottom: 4rem;
+    }
+
+    .accent-svg { display: block; margin: 0.5rem 0 2.5rem; }
+
+    /* ─── PARTNERSHIP FRAMEWORK GRID ─── */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(30,58,138,0.15);
+    }
+
+    .framework-block {
+      background: var(--bg);
+      padding: 2.5rem 2rem;
+      border: 1px solid transparent;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .framework-block:hover {
+      background: rgba(30,58,138,0.07);
+      border-color: rgba(37,99,235,0.22);
+      transform: translateY(-3px);
+    }
+
+    .fw-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .fw-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .fw-desc {
+      font-size: 0.83rem;
+      line-height: 1.68;
+      color: var(--steel);
+    }
+
+    /* ─── FORM STYLES ─── */
+    #application { padding: 8rem 0; }
+
+    .form-wrapper { max-width: 860px; }
+
+    .form-block { margin-bottom: 5rem; }
+
+    .form-section-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(30,58,138,0.2);
+    }
+
+    .form-section-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .field-group { margin-bottom: 1.8rem; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .field-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.6rem;
+    }
+
+    .req { color: var(--sky); margin-left: 2px; }
+
+    .field-input,
+    .field-select,
+    .field-textarea {
+      width: 100%;
+      background: rgba(30,58,138,0.06);
+      border: 1px solid rgba(30,58,138,0.3);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.9rem 1.1rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder { color: var(--dim); }
+
+    .field-input:focus,
+    .field-select:focus,
+    .field-textarea:focus {
+      border-color: rgba(14,165,233,0.55);
+      background: rgba(30,58,138,0.1);
+      box-shadow: 0 0 0 1px rgba(14,165,233,0.15);
+    }
+
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .field-select option {
+      background: #0d1220;
+      color: var(--white);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.65;
+    }
+
+    /* Checkbox group */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1px solid rgba(30,58,138,0.5);
+      background: rgba(30,58,138,0.06);
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      border-radius: 0;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked {
+      background: rgba(14,165,233,0.18);
+      border-color: var(--sky);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 4px; height: 8px;
+      border: 1px solid var(--sky);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .checkbox-item input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(14,165,233,0.2);
+    }
+
+    .checkbox-label {
+      font-size: 0.88rem;
+      color: var(--steel);
+      line-height: 1.55;
+      transition: color 0.2s;
+    }
+
+    .checkbox-item:hover .checkbox-label { color: var(--white); }
+
+    /* Declaration block */
+    .declaration-block {
+      padding: 2rem;
+      border: 1px solid rgba(30,58,138,0.25);
+      background: rgba(30,58,138,0.04);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .declaration-block:hover { border-color: rgba(37,99,235,0.38); }
+
+    .declaration-block input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(30,58,138,0.5);
+      background: transparent;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      border-radius: 0;
+    }
+
+    .declaration-block input[type="checkbox"]:checked {
+      background: rgba(14,165,233,0.15);
+      border-color: var(--sky);
+    }
+
+    .declaration-block input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 5px; height: 9px;
+      border: 1px solid var(--sky);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .declaration-text {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--steel);
+    }
+
+    .declaration-text strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.5);
+      padding: 1.3rem 2rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+      margin-top: 1rem;
+      border-radius: 0;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid var(--blue-bright);
+      opacity: 0;
+      animation: borderGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0; }
+      50%       { opacity: 0.65; }
+    }
+
+    .btn-submit:hover {
+      background: rgba(37,99,235,0.22);
+      border-color: var(--blue-bright);
+    }
+
+    .btn-submit:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.35);
+    }
+
+    /* Review note */
+    .form-footer-note {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .form-footer-note p {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(30,58,138,0.15);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--steel); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .framework-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger            { display: flex; }
+      .framework-grid       { grid-template-columns: 1fr; }
+      .field-row            { grid-template-columns: 1fr; gap: 1.2rem; }
+      .section-inner        { padding: 0 1.25rem; }
+      .content-section,
+      #application          { padding: 5rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed grid overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="logo" aria-label="VersaTech Global Solutions — Home">
+        <img src="logo.png" alt="VersaTech Global Solutions" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ecosystem.html" class="active">Ecosystem</a></li>
+        <li><a href="public-impact.html">Public Sector</a></li>
+        <li><a href="investors.html">Investors</a></li>
+      </ul>
+
+      <a href="inquiry.html" class="nav-cta">Strategic Inquiry</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html"         class="mobile-link">Home</a></li>
+      <li><a href="about.html"         class="mobile-link">About</a></li>
+      <li><a href="ecosystem.html"     class="mobile-link">Ecosystem</a></li>
+      <li><a href="public-impact.html" class="mobile-link">Public Sector</a></li>
+      <li><a href="investors.html"     class="mobile-link">Investors</a></li>
+      <li><a href="inquiry.html"       class="mobile-link">Strategic Inquiry</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-beam"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-page-label">VersaTech Ecosystem &mdash; Hub Partnerships</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Innovation Hub<br/>Partnership Portal
+      </h1>
+
+      <div class="hero-accent-line" aria-hidden="true"></div>
+
+      <div class="hero-sub">
+        <p>VersaTech builds distributed innovation and infrastructure nodes across Africa through structured collaboration with technology hubs, accelerators, research institutions, and ecosystem enablers.</p>
+        <p><strong>This is a strategic infrastructure partnership channel.</strong></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PARTNERSHIP FRAMEWORK
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section class="content-section" aria-labelledby="framework-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Partnership Framework</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 class="s-headline" id="framework-headline">
+          Structured collaboration across<br/>four infrastructure domains.
+        </h2>
+        <p class="s-intro">
+          We collaborate with hubs aligned with long-term infrastructure thinking and continental scalability.
+        </p>
+      </div>
+
+      <div class="framework-grid">
+
+        <div class="framework-block reveal">
+          <p class="fw-num">01 &mdash; Incubation</p>
+          <p class="fw-title">Joint Incubation &amp; Acceleration Programs</p>
+          <p class="fw-desc">Co-designed accelerator tracks and incubation cohorts targeting Africa's structural infrastructure and platform challenges at continental scale.</p>
+        </div>
+
+        <div class="framework-block reveal reveal-delay-1">
+          <p class="fw-num">02 &mdash; Research</p>
+          <p class="fw-title">AI &amp; Research Collaboration</p>
+          <p class="fw-desc">Joint research initiatives advancing sovereign AI model development, data infrastructure, and digital governance frameworks across regional institutions.</p>
+        </div>
+
+        <div class="framework-block reveal reveal-delay-2">
+          <p class="fw-num">03 &mdash; Infrastructure</p>
+          <p class="fw-title">Infrastructure Node Integration</p>
+          <p class="fw-desc">Embedding hubs within VersaTech's distributed infrastructure network as regional nodes for talent development, technical capacity, and platform deployment.</p>
+        </div>
+
+        <div class="framework-block reveal reveal-delay-3">
+          <p class="fw-num">04 &mdash; Policy</p>
+          <p class="fw-title">Public-Private Innovation Models</p>
+          <p class="fw-desc">Collaborative frameworks bridging innovation hubs with government institutions, enabling structured public-private digital infrastructure deployment.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       APPLICATION FORM
+  ═══════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+  <section id="application" aria-labelledby="form-headline">
+    <div class="section-inner">
+
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <span class="s-label">Partnership Proposal</span>
+        <svg class="accent-svg" width="48" height="2" viewBox="0 0 48 2" aria-hidden="true">
+          <line x1="0" y1="1" x2="48" y2="1" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--white);line-height:1.2;margin-bottom:1rem;" id="form-headline">
+          Submit a structured partnership proposal.
+        </h2>
+        <p style="font-size:0.93rem;line-height:1.8;color:var(--steel);max-width:560px;">
+          Complete all sections in full. Proposals are reviewed on the basis of strategic alignment, infrastructure capacity, and continental scalability.
+        </p>
+      </div>
+
+      <div class="form-wrapper reveal">
+
+        <form
+          action="https://formsubmit.co/denisnzioka63@mail.com"
+          method="POST"
+          novalidate
+          aria-label="Innovation Hub Partnership Application Form"
+        >
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject"  value="New Innovation Hub Partnership Proposal - VersaTech" />
+          <input type="hidden" name="_captcha"  value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <!-- ══════════════════════════
+               SECTION 1 — ORGANIZATION OVERVIEW
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 01</p>
+              <p class="form-section-title">Organization Overview</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="org-name">
+                  Organization Name <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="org-name"
+                  name="organization_name"
+                  placeholder="Your hub or institution name"
+                  required
+                  autocomplete="organization"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="org-website">
+                  Website <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="url"
+                  id="org-website"
+                  name="website"
+                  placeholder="https://yourhub.org"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="location">
+                  Country / Primary Location <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="e.g. Nairobi, Kenya"
+                  required
+                  autocomplete="country-name"
+                />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="years-operating">
+                  Years Operating <span class="req" aria-label="required">*</span>
+                </label>
+                <input
+                  class="field-input"
+                  type="number"
+                  id="years-operating"
+                  name="years_operating"
+                  placeholder="e.g. 5"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="startups-annually">
+                  Number of Startups Supported Annually
+                </label>
+                <input
+                  class="field-input"
+                  type="number"
+                  id="startups-annually"
+                  name="startups_annually"
+                  placeholder="e.g. 30"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="focus-areas">
+                Primary Focus Areas <span class="req" aria-label="required">*</span>
+              </label>
+              <textarea
+                class="field-textarea"
+                id="focus-areas"
+                name="primary_focus_areas"
+                placeholder="Describe your hub's primary sectors, programs, and areas of specialization..."
+                required
+                style="min-height: 120px;"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 2 — INFRASTRUCTURE CAPABILITY
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 02</p>
+              <p class="form-section-title">Infrastructure Capability</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="space-type">
+                Do you operate physical space, virtual programs, or both?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="space-type"
+                name="space_type"
+                placeholder="Describe the nature of your operating model — physical co-working, lab space, virtual cohorts, hybrid..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="incubation-structure">
+                Describe your current incubation or accelerator structure.
+              </label>
+              <textarea
+                class="field-textarea"
+                id="incubation-structure"
+                name="incubation_structure"
+                placeholder="Program format, cohort size, duration, curriculum, selection process..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="ai-research">
+                Do you support AI research, developer programs, or technical labs?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="ai-research"
+                name="ai_research_programs"
+                placeholder="Describe any AI research initiatives, developer academies, technical labs, or innovation programs you operate..."
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="infra-capacity">
+                What infrastructure capacity do you currently provide to startups?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="infra-capacity"
+                name="infrastructure_capacity"
+                placeholder="Cloud credits, technical tools, workspace, connectivity, server infrastructure, technical mentorship..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 3 — STRATEGIC ALIGNMENT
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 03</p>
+              <p class="form-section-title">Strategic Alignment</p>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="why-versa">
+                Why do you want to partner with VersaTech?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="why-versa"
+                name="partnership_motivation"
+                placeholder="Describe your reasons for seeking a strategic partnership with VersaTech and what you hope to contribute..."
+                style="min-height: 140px;"
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="joint-structure">
+                How would joint programs or infrastructure initiatives be structured?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="joint-structure"
+                name="joint_program_structure"
+                placeholder="Proposed collaboration model, resource contribution, governance structure, program design..."
+                style="min-height: 140px;"
+              ></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="continental-alignment">
+                How does your hub align with long-term continental infrastructure development?
+              </label>
+              <textarea
+                class="field-textarea"
+                id="continental-alignment"
+                name="continental_alignment"
+                placeholder="Your hub's continental ambitions, cross-border programs, regional growth strategy..."
+                style="min-height: 140px;"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               SECTION 4 — PARTNERSHIP FOCUS
+          ══════════════════════════ -->
+          <div class="form-block">
+            <div class="form-section-header">
+              <p class="form-section-num">Section 04</p>
+              <p class="form-section-title">Partnership Focus</p>
+            </div>
+
+            <div class="field-group">
+              <fieldset style="border:none;padding:0;">
+                <legend class="field-label" style="display:block;margin-bottom:0.9rem;">
+                  Areas of Interest
+                </legend>
+                <div class="checkbox-group" role="group" aria-label="Partnership focus areas">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="Joint Accelerator Programs" />
+                    <span class="checkbox-label">Joint Accelerator Programs</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="AI Research Collaboration" />
+                    <span class="checkbox-label">AI Research Collaboration</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="Infrastructure Node Development" />
+                    <span class="checkbox-label">Infrastructure Node Development</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="Government Innovation Initiatives" />
+                    <span class="checkbox-label">Government Innovation Initiatives</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="Developer Ecosystem Expansion" />
+                    <span class="checkbox-label">Developer Ecosystem Expansion</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="focus_areas[]" value="Other" />
+                    <span class="checkbox-label">Other</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════
+               FINAL DECLARATION
+          ══════════════════════════ -->
+          <div class="form-block" style="margin-bottom: 2rem;">
+            <div class="form-section-header">
+              <p class="form-section-num">Declaration</p>
+              <p class="form-section-title">Partnership Acknowledgement</p>
+            </div>
+
+            <label class="declaration-block" for="declaration">
+              <input
+                type="checkbox"
+                id="declaration"
+                name="declaration"
+                value="Confirmed"
+                required
+              />
+              <span class="declaration-text">
+                <strong>I confirm that this proposal reflects a serious strategic partnership inquiry aligned with long-term infrastructure collaboration.</strong>
+                I understand that all proposals are reviewed structurally and that only hubs with genuine continental alignment will be invited to proceed.
+              </span>
+            </label>
+
+            <button type="submit" class="btn-submit" aria-label="Submit partnership proposal">
+              Submit Strategic Partnership Proposal
+            </button>
+
+            <div class="form-footer-note">
+              <p>All partnership proposals are reviewed structurally.</p>
+              <p>Selected hubs may be invited for strategic alignment discussions.</p>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2025 VersaTech Global Solutions. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="inquiry.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    /* ─── HAMBURGER TOGGLE ─── */
+    const menuBtn     = document.getElementById('menuBtn');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ─── SCROLL REVEAL ─── */
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ─── HERO PARALLAX ─── */
+    const heroOrbs = document.querySelectorAll('.orb');
+    const heroGrid = document.querySelector('.hero-grid');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroOrbs.forEach((orb, i) => {
+        orb.style.transform = `translateY(${scrollY * (0.06 + i * 0.035)}px)`;
+      });
+      if (heroGrid) {
+        heroGrid.style.transform = `translateY(${scrollY * 0.12}px)`;
+      }
+    }, { passive: true });
+
+    /* ─── SMOOTH SCROLL FOR HASH LINKS ─── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ─── DECLARATION VALIDATION ─── */
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+      const declaration = document.getElementById('declaration');
+      if (!declaration.checked) {
+        e.preventDefault();
+        declaration.focus();
+        const block = declaration.closest('.declaration-block');
+        block.style.borderColor = 'rgba(239,68,68,0.5)';
+        setTimeout(() => { block.style.borderColor = ''; }, 2000);
+      }
+    });
+  </script>
+
+</body>
+</html>
